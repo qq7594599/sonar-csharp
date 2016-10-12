@@ -40,7 +40,7 @@ public class Tests {
 
   @ClassRule
   public static final Orchestrator ORCHESTRATOR = Orchestrator.builderEnv()
-    .addPlugin(FileLocation.of("../../target/sonar-csharp-plugin.jar"))
+    .addPlugin(FileLocation.byWildcardMavenFilename(new File("../target"), "sonar-csharp-plugin-*.jar"))
     .restoreProfileAtStartup(FileLocation.of("profiles/no_rule.xml"))
     .restoreProfileAtStartup(FileLocation.of("profiles/class_name.xml"))
     .restoreProfileAtStartup(FileLocation.of("profiles/template_rule.xml"))
